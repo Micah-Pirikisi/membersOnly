@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Members Only</title>
+  </head>
+  <body>
+    <h1>Members Only</h1>
+
+    <% if (user) { %>
+    <p>Welcome, <%= user.first_name %>!</p>
+    <a href="/logout">Logout</a> | <a href="/messages/new">New Message</a>
+    <% } else { %>
+    <a href="/signup">Sign Up</a> | <a href="/login">Login</a>
+    <% } %>
+
+    <h2>Recent Messages</h2>
+    <ul>
+      <% messages.forEach(msg => { %>
+      <li>
+        <strong><%= msg.title %></strong><br />
+        <%= msg.body %><br />
+        <small
+          >Posted by <%= msg.first_name %> <%= msg.last_name %> on <%=
+          msg.created_at.toDateString() %></small
+        >
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
