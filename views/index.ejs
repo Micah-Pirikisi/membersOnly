@@ -19,10 +19,12 @@
       <li>
         <strong><%= msg.title %></strong><br />
         <%= msg.body %><br />
-        <small
-          >Posted by <%= msg.first_name %> <%= msg.last_name %> on <%=
-          msg.created_at.toDateString() %></small
-        >
+        <% if (user) { %>
+        <small>
+          Posted by <%= msg.first_name %> <%= msg.last_name %> on <%=
+          msg.created_at.toDateString() %>
+        </small>
+        <% } %>
       </li>
       <% }) %>
     </ul>
