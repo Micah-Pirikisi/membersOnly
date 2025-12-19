@@ -10,5 +10,6 @@ function ensureAuthenticated(req, res, next) {
 router.get("/", ensureAuthenticated, messageController.messages_get);
 router.get("/new", ensureAuthenticated, messageController.newmessage_get);
 router.post("/", ensureAuthenticated, messageController.newmessage_post);
+router.post("/:message_id/delete", ensureAuthenticated, messageController.delete_message_post);
 
 module.exports = router;

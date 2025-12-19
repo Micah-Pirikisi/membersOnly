@@ -5,7 +5,7 @@ exports.homepage_get = async (req, res, next) => {
   try {
     // Show lates messages on homepage
     const { rows } = await pool.query(
-      `SELECT m.title, m.body, m.created_at, u.first_name, u.last_name
+      `SELECT m.message_id, m.title, m.body, m.created_at, u.first_name, u.last_name
        FROM messages m
        JOIN members u ON m.member_id = u.member_id
        ORDER BY m.created_at DESC

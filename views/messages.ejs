@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Messages</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <h1>All Messages</h1>
@@ -15,12 +18,24 @@
     <ul>
       <% messages.forEach(msg => { %>
       <li>
-        <strong><%= msg.title %></strong><br />
-        <%= msg.body %><br />
-        <small
-          >Posted by <%= msg.first_name %> <%= msg.last_name %> on <%=
-          msg.created_at.toDateString() %></small
+        <strong><%= msg.title %></strong>
+        <br />
+        <%= msg.body %>
+        <br />
+        <% if (user) { %>
+        <small>
+          Posted by <%= msg.first_name %> <%= msg.last_name %> on <%=
+          msg.created_at.toDateString() %>
+        </small>
+        <% } %> <% if (user && user.admin) { %>
+        <form
+          action="/messages/<%= msg.message_id %>/delete"
+          method="POST"
+          style="display: inline"
         >
+          <button type="submit" id="delete">Delete</button>
+        </form>
+        <% } %>
       </li>
       <% }) %>
     </ul>

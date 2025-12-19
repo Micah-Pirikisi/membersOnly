@@ -1,0 +1,366 @@
+/* Quiet Vibey Lounge Aesthetic */
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --accent-warm: #ba00ee;
+  --accent-cool: #7b7b7b;
+  --accent-muted: #6366f1;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --border-color: #2a2a4a;
+  --hover-overlay: rgba(124, 58, 237, 0.1);
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  padding: 2.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  color: var(--accent-warm);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  color: var(--accent-cool);
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--accent-muted);
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+}
+
+a {
+  color: var(--accent-warm);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+a:hover {
+  color: var(--accent-cool);
+  text-shadow: 0 0 8px rgba(107, 155, 209, 0.3);
+}
+
+/* Main Layout */
+main {
+  padding: 0;
+}
+
+/* Navigation & Header */
+header, nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav a, header a {
+  margin-right: 1.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+nav a:last-child, header a:last-child {
+  margin-right: 0;
+}
+
+nav a:hover, header a:hover {
+  color: var(--accent-warm);
+}
+
+/* Inline nav separator */
+body > p + a::after {
+  content: " |";
+  margin: 0 0.75rem;
+}
+
+/* Forms */
+form {
+  background-color: var(--bg-secondary);
+  padding: 2.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+form:hover {
+  border-color: var(--accent-muted);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:last-of-type,
+input[type="email"]:last-of-type,
+input[type="password"]:last-of-type,
+textarea {
+  margin-bottom: 1.75rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  background-color: #21263f;
+  border-color: var(--accent-warm);
+  box-shadow: 0 0 16px rgba(212, 165, 116, 0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+  margin-bottom: 1.75rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+label input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: auto;
+  margin-bottom: 0;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+  padding: 0.875rem 1.75rem;
+  background-color: var(--accent-warm);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+  letter-spacing: 0.5px;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: var(--accent-cool);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 155, 209, 0.3);
+}
+
+button:active, input[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(107, 155, 209, 0.2);
+}
+
+form button[type="submit"] {
+  width: 100%;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  margin-bottom: 3rem;
+  margin-top: 0;
+  padding: 0;
+}
+
+li {
+  background-color: var(--bg-secondary);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-warm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  border-left-color: var(--accent-cool);
+  background-color: var(--bg-tertiary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateX(4px);
+}
+
+li strong {
+  color: var(--accent-warm);
+  display: block;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+}
+
+li strong + br {
+  display: none;
+}
+
+li small {
+  color: var(--text-secondary);
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Delete Button (inline) */
+form[style*="display: inline"] {
+  display: block !important;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: -1.5rem;
+}
+
+form[style*="display: inline"] button {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  background-color: transparent;
+  color: var(--danger);
+  width: auto;
+  margin: 0;
+  box-shadow: none;
+  white-space: nowrap;
+  border: 1px solid var(--danger);
+  border-radius: 6px;
+}
+
+form[style*="display: inline"] button:hover {
+  background-color: var(--danger);
+  color: var(--text-primary);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Welcome Message */
+.welcome {
+  background: linear-gradient(135deg, var(--accent-warm) 0%, var(--accent-cool) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Section Headers */
+h2 {
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent-cool);
+  margin-bottom: 1.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  form {
+    padding: 1.75rem;
+  }
+
+  nav a {
+    margin-right: 1rem;
+    font-size: 0.95rem;
+  }
+
+  li {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  button, input[type="submit"] {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

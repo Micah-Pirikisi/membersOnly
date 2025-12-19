@@ -8,14 +8,14 @@ exports.signup_get = (req, res) => {
 
 // Handle sign-up (POST)
 exports.signup_post = async (req, res, next) => {
-  const { first_name, last_name, email, password } = req.body;
+  const { first_name, last_name, email, password, admin } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // INSERT and RETURNING * to get the inserted user
     const result = await pool.query(
-      "INSERT INTO members (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *",
-      [first_name, last_name, email, hashedPassword]
+      "INSERT INTO members (first_name, last_name, email, password, admin) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [first_name, last_name, email, hashedPassword, admin === 'true']
     );
 
     const user = result.rows[0]; // now user is defined
